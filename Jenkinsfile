@@ -22,7 +22,7 @@ pipeline {
         stage("Maven Build") {
             steps {
                 
-                    checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/gitvers/jenkins-nexus.git']]])
+                    checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/gitvers/jenkins-nexus.git']]])
                     sh "mvn -Dmaven.test.failure.ignore=true clean package"
                 
             }
