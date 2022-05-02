@@ -1,7 +1,7 @@
 pipeline {
     agent any
     tools {
-        maven "MAVEN"
+        maven "maven-3.8"
     }
     environment {
         NEXUS_VERSION = "nexus3"
@@ -10,17 +10,18 @@ pipeline {
         NEXUS_REPOSITORY = "java-app"
         NEXUS_CREDENTIAL_ID = "NEXUS_CRED"
     }
-    stages {
-        stage("Clone code from GitHub") {
-            steps {
-                script {
-                    git branch: 'main', credentialsId: 'githubwithpassword', url: 'https://github.com/devopshint/jenkins-nexus';
-                }
-            }
-        }
+    // stages {
+     //   stage("Clone code from GitHub") {
+       //   steps {
+         //       script {
+           //         git branch: 'main', credentialsId: 'githubwithpassword', url: 'https://github.com/devopshint/jenkins-nexus';
+             //   }
+           // }
+       // }
         stage("Maven Build") {
             steps {
                 script {
+                    
                     sh "mvn package -DskipTests=true"
                 }
             }
