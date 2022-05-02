@@ -21,10 +21,10 @@ pipeline {
     stages{
         stage("Maven Build") {
             steps {
-                script {
+                
                     checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/gitvers/jenkins-nexus.git']]])
                     sh "mvn -Dmaven.test.failure.ignore=true clean package"
-                }
+                
             }
         }
         stage("Publish to Nexus Repository Manager") {
