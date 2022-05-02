@@ -22,7 +22,7 @@ pipeline {
             steps {
                 script {
                     checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/gitvers/jenkins-nexus.git']]])
-                    sh "mvn package -DskipTests=true"
+                    sh "mvn -Dmaven.test.failure.ignore=true clean package"
                 }
             }
         }
