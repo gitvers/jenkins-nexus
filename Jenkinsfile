@@ -10,7 +10,7 @@ pipeline {
        // NEXUS_REPOSITORY = "java-app"
        // NEXUS_CREDENTIAL_ID = "NEXUS_CRED"
     // }
-     stages {
+     
      //   stage("Clone code from GitHub") {
        //   steps {
          //       script {
@@ -18,6 +18,7 @@ pipeline {
              //   }
            // }
        // }
+    stages{
         stage("Maven Build") {
             steps {
                 script {
